@@ -11,8 +11,11 @@ $nama = $dataadmin['username'];
 $query = "SELECT * FROM jadwal ORDER BY id_jadwal";
 $sql = mysqli_query($connect, $query);
 
+$qtiket = "CREATE VIEW tiket_view as SELECT * FROM tiket";
+$sqltiket = mysqli_query($connect, $qtiket);
 $query2 = "SELECT * FROM tiket ORDER BY id_tiket";
 $sql2 = mysqli_query($connect, $query2);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -151,7 +154,7 @@ $sql2 = mysqli_query($connect, $query2);
 						    	$idpemesan = $datatiket['id_pemesan'];
 						    	$idjadwal = $datatiket['id_jadwal'];
 
-						    	$queryPEM = "SELECT * FROM pemesan WHERE id_pemesan = '$idpemesan'";
+           						$queryPEM = "SELECT * FROM pemesan WHERE id_pemesan = '$idpemesan'";
         						$sqlPEM = mysqli_query($connect, $queryPEM);
         						$dataPEM = mysqli_fetch_array($sqlPEM);
 
