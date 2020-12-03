@@ -151,15 +151,11 @@ $sql2 = mysqli_query($connect, $query2);
 						    	$idpemesan = $datatiket['id_pemesan'];
 						    	$idjadwal = $datatiket['id_jadwal'];
 
-						    	$q1 = "CREATE VIEW pembeli_view as SELECT * FROM pemesan WHERE id_pemesan = '$idpemesan'";
-           						$sqlPEM1 = mysqli_query($connect, $q1);
-           						$queryPEM = "SELECT * FROM pembeli_view";
+						    	$queryPEM = "SELECT * FROM pemesan WHERE id_pemesan = '$idpemesan'";
         						$sqlPEM = mysqli_query($connect, $queryPEM);
         						$dataPEM = mysqli_fetch_array($sqlPEM);
 
-        						$q2 = "CREATE VIEW jadwal_view as SELECT * FROM jadwal WHERE id_jadwal = $idjadwal";
-        						$sqlJAD1 = mysqli_query($connect, $q2);
-        						$queryJAD = "SELECT * FROM jadwal_view";
+        						$queryJAD = "SELECT * FROM jadwal WHERE id_jadwal = $idjadwal";
         						$sqlJAD = mysqli_query($connect, $queryJAD);
         						$dataJAD = mysqli_fetch_array($sqlJAD);
 
