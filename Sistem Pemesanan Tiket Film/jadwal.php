@@ -63,9 +63,11 @@ include 'config.php';
 					    if(isset($_GET['cari'])){
 						  $cari = $_GET['cari'];
 
-						  	$query1 = "SELECT * FROM film WHERE judul = '".$cari."'";
-							$sql1 = mysqli_query($connect, $query1);
-							$datafilm = mysqli_fetch_array($sql1);
+						  	$q = "CREATE VIEW film_view as SELECT * FROM film WHERE judul = '".$cari."'";
+         						$sql1 = mysqli_query($connect, $q);
+         						$query1 = "SELECT * FROM film_view";
+       							$sql1 = mysqli_query($connect, $query1);
+       							$datafilm = mysqli_fetch_array($sql1);
 
 							$id_film = $datafilm['id_film'];
 
